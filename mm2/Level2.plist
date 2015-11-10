@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>levelName</key>
+	<string>Cold Place</string>
+	<key>backgroundTexture</key>
+	<string></string>
+	<key>wallTexture</key>
+	<string>wall01</string>
+	<key>floorTexture</key>
+	<string>floor02</string>
+	<key>itemTexture</key>
+	<string></string>
+	<key>goalTexture</key>
+	<string></string>
+	<key>nastiesConfiguration</key>
+	<array>
+		<dict>
+			<key>spawnID</key>
+			<string>id1</string>
+			<key>texture</key>
+			<string>robot</string>
+			<key>speed</key>
+			<integer>0</integer>
+			<key>directionHorizontal</key>
+			<true/>
+			<key>rangeofMovementLU</key>
+			<integer>10</integer>
+			<key>rangeofMovementRD</key>
+			<integer>5</integer>
+		</dict>
+		<dict>
+			<key>spawnID</key>
+			<string>id2</string>
+			<key>texture</key>
+			<string>duck</string>
+			<key>speed</key>
+			<integer>0</integer>
+			<key>directionHorizontal</key>
+			<true/>
+			<key>rangeofMovementLU</key>
+			<integer>10</integer>
+			<key>rangeofMovementRD</key>
+			<integer>5</integer>
+		</dict>
+	</array>
+</dict>
+</plist>

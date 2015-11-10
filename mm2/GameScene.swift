@@ -10,6 +10,8 @@ import SpriteKit
 
 class GameScene: SKScene {
     override func didMoveToView(view: SKView) {
+        print("\(__FUNCTION__)old")
+        
         /* Setup your scene here */
         let myLabel = SKLabelNode(fontNamed:"Chalkduster")
         myLabel.text = "Hello, World!";
@@ -35,7 +37,7 @@ class GameScene: SKScene {
             
             sprite.runAction(SKAction.repeatActionForever(action))
             
-            self.addChild(sprite)
+           // self.addChild(sprite)
         }
     }
    
