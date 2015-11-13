@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		23BFAB6A1BF4C08A00B8FD81 /* AnimatePlayerComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23BFAB691BF4C08A00B8FD81 /* AnimatePlayerComponent.swift */; };
 		52187E991BF213D40019564E /* Level2.plist in Resources */ = {isa = PBXBuildFile; fileRef = 52187E981BF213D40019564E /* Level2.plist */; };
+		5227EFDB1BF55695004504CD /* player.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 5227EFDA1BF55695004504CD /* player.atlas */; };
 		524E65D11BF13BD90078EDB5 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524E65D01BF13BD90078EDB5 /* Helpers.swift */; };
 		525363751BEBF1DE0042ED95 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525363741BEBF1DE0042ED95 /* AppDelegate.swift */; };
 		525363771BEBF1DE0042ED95 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 525363761BEBF1DE0042ED95 /* GameScene.sks */; };
@@ -28,6 +30,14 @@
 		525363A11BEBF30D0042ED95 /* hud.sks in Resources */ = {isa = PBXBuildFile; fileRef = 525363A01BEBF30D0042ED95 /* hud.sks */; };
 		525363A81BEBFD3D0042ED95 /* SplashScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525363A71BEBFD3D0042ED95 /* SplashScene.swift */; };
 		525363AA1BEBFDC00042ED95 /* LevelScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525363A91BEBFDC00042ED95 /* LevelScene.swift */; };
+		525EB1F51BF3D26000CC69A0 /* MovePlayerComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525EB1F41BF3D26000CC69A0 /* MovePlayerComponent.swift */; };
+		525EB1F81BF3F06D00CC69A0 /* PlayerIdle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525EB1F71BF3F06D00CC69A0 /* PlayerIdle.swift */; };
+		525EB1FA1BF3F0E900CC69A0 /* PlayerMoveRight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525EB1F91BF3F0E900CC69A0 /* PlayerMoveRight.swift */; };
+		525EB1FC1BF3F0FB00CC69A0 /* PlayerMoveLeft.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525EB1FB1BF3F0FB00CC69A0 /* PlayerMoveLeft.swift */; };
+		525EB1FE1BF3F10800CC69A0 /* PlayerJump.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525EB1FD1BF3F10800CC69A0 /* PlayerJump.swift */; };
+		52C36FFA1BF2A4E3006D731D /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C36FF91BF2A4E3006D731D /* Player.swift */; };
+		52C36FFC1BF2A504006D731D /* EntityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C36FFB1BF2A504006D731D /* EntityManager.swift */; };
+		52C36FFF1BF2A5A1006D731D /* SpriteComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C36FFE1BF2A5A1006D731D /* SpriteComponent.swift */; };
 		52EBB4811BEFBA7E008FCF24 /* LevelConfigInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52EBB4801BEFBA7E008FCF24 /* LevelConfigInfo.swift */; };
 		52EBB4831BEFD19E008FCF24 /* Level1.plist in Resources */ = {isa = PBXBuildFile; fileRef = 52EBB4821BEFD19E008FCF24 /* Level1.plist */; };
 		52EBB4861BEFEB94008FCF24 /* Player.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52EBB4851BEFEB94008FCF24 /* Player.xcassets */; };
@@ -36,7 +46,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		23BFAB691BF4C08A00B8FD81 /* AnimatePlayerComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimatePlayerComponent.swift; sourceTree = "<group>"; };
 		52187E981BF213D40019564E /* Level2.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Level2.plist; sourceTree = "<group>"; };
+		5227EFDA1BF55695004504CD /* player.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = player.atlas; sourceTree = "<group>"; };
 		524E65D01BF13BD90078EDB5 /* Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		525363711BEBF1DE0042ED95 /* mm2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mm2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		525363741BEBF1DE0042ED95 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -59,6 +71,14 @@
 		525363A01BEBF30D0042ED95 /* hud.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = hud.sks; sourceTree = "<group>"; };
 		525363A71BEBFD3D0042ED95 /* SplashScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplashScene.swift; sourceTree = "<group>"; };
 		525363A91BEBFDC00042ED95 /* LevelScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelScene.swift; sourceTree = "<group>"; };
+		525EB1F41BF3D26000CC69A0 /* MovePlayerComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovePlayerComponent.swift; sourceTree = "<group>"; };
+		525EB1F71BF3F06D00CC69A0 /* PlayerIdle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerIdle.swift; sourceTree = "<group>"; };
+		525EB1F91BF3F0E900CC69A0 /* PlayerMoveRight.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerMoveRight.swift; sourceTree = "<group>"; };
+		525EB1FB1BF3F0FB00CC69A0 /* PlayerMoveLeft.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerMoveLeft.swift; sourceTree = "<group>"; };
+		525EB1FD1BF3F10800CC69A0 /* PlayerJump.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerJump.swift; sourceTree = "<group>"; };
+		52C36FF91BF2A4E3006D731D /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		52C36FFB1BF2A504006D731D /* EntityManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntityManager.swift; sourceTree = "<group>"; };
+		52C36FFE1BF2A5A1006D731D /* SpriteComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpriteComponent.swift; sourceTree = "<group>"; };
 		52EBB4801BEFBA7E008FCF24 /* LevelConfigInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelConfigInfo.swift; sourceTree = "<group>"; };
 		52EBB4821BEFD19E008FCF24 /* Level1.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Level1.plist; sourceTree = "<group>"; };
 		52EBB4851BEFEB94008FCF24 /* Player.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Player.xcassets; sourceTree = "<group>"; };
@@ -96,6 +116,8 @@
 		525363731BEBF1DE0042ED95 /* mm2 */ = {
 			isa = PBXGroup;
 			children = (
+				52C36FFD1BF2A55F006D731D /* Components */,
+				52C36FF81BF2A4B4006D731D /* Entities */,
 				52EBB4841BEFEB7F008FCF24 /* Assets */,
 				525363A21BEBF3330042ED95 /* Managers */,
 				525363931BEBF2BC0042ED95 /* Scenes */,
@@ -115,6 +137,7 @@
 		525363891BEBF21B0042ED95 /* StatesMachines */ = {
 			isa = PBXGroup;
 			children = (
+				525EB1F61BF3F04300CC69A0 /* PlayerMoveStates */,
 				5253638A1BEBF2370042ED95 /* LevelStates */,
 			);
 			name = StatesMachines;
@@ -173,9 +196,40 @@
 			name = Managers;
 			sourceTree = "<group>";
 		};
+		525EB1F61BF3F04300CC69A0 /* PlayerMoveStates */ = {
+			isa = PBXGroup;
+			children = (
+				525EB1F71BF3F06D00CC69A0 /* PlayerIdle.swift */,
+				525EB1F91BF3F0E900CC69A0 /* PlayerMoveRight.swift */,
+				525EB1FB1BF3F0FB00CC69A0 /* PlayerMoveLeft.swift */,
+				525EB1FD1BF3F10800CC69A0 /* PlayerJump.swift */,
+			);
+			name = PlayerMoveStates;
+			sourceTree = "<group>";
+		};
+		52C36FF81BF2A4B4006D731D /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				52C36FF91BF2A4E3006D731D /* Player.swift */,
+				52C36FFB1BF2A504006D731D /* EntityManager.swift */,
+			);
+			name = Entities;
+			sourceTree = "<group>";
+		};
+		52C36FFD1BF2A55F006D731D /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				52C36FFE1BF2A5A1006D731D /* SpriteComponent.swift */,
+				525EB1F41BF3D26000CC69A0 /* MovePlayerComponent.swift */,
+				23BFAB691BF4C08A00B8FD81 /* AnimatePlayerComponent.swift */,
+			);
+			name = Components;
+			sourceTree = "<group>";
+		};
 		52EBB4841BEFEB7F008FCF24 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				5227EFDA1BF55695004504CD /* player.atlas */,
 				52EBB4851BEFEB94008FCF24 /* Player.xcassets */,
 				52EBB4891BEFECD8008FCF24 /* Walls.xcassets */,
 				52EBB48B1BEFECE5008FCF24 /* Floors.xcassets */,
@@ -253,6 +307,7 @@
 				5253637D1BEBF1DE0042ED95 /* Game.xcassets in Resources */,
 				5253639D1BEBF2F50042ED95 /* End.sks in Resources */,
 				52187E991BF213D40019564E /* Level2.plist in Resources */,
+				5227EFDB1BF55695004504CD /* player.atlas in Resources */,
 				525363981BEBF2E30042ED95 /* Level1.sks in Resources */,
 				52EBB48A1BEFECD8008FCF24 /* Walls.xcassets in Resources */,
 				5253639B1BEBF2EC0042ED95 /* Start.sks in Resources */,
@@ -266,16 +321,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				525EB1F51BF3D26000CC69A0 /* MovePlayerComponent.swift in Sources */,
 				525363791BEBF1DE0042ED95 /* GameScene.swift in Sources */,
+				525EB1FA1BF3F0E900CC69A0 /* PlayerMoveRight.swift in Sources */,
 				5253637B1BEBF1DE0042ED95 /* GameViewController.swift in Sources */,
+				52C36FFF1BF2A5A1006D731D /* SpriteComponent.swift in Sources */,
 				525363901BEBF2800042ED95 /* GameLevelScreenState.swift in Sources */,
 				525363921BEBF29D0042ED95 /* GameSplashScreenState.swift in Sources */,
+				525EB1F81BF3F06D00CC69A0 /* PlayerIdle.swift in Sources */,
+				525EB1FE1BF3F10800CC69A0 /* PlayerJump.swift in Sources */,
+				52C36FFA1BF2A4E3006D731D /* Player.swift in Sources */,
 				524E65D11BF13BD90078EDB5 /* Helpers.swift in Sources */,
 				52EBB4811BEFBA7E008FCF24 /* LevelConfigInfo.swift in Sources */,
+				52C36FFC1BF2A504006D731D /* EntityManager.swift in Sources */,
 				5253638C1BEBF2680042ED95 /* GameCompleteState.swift in Sources */,
+				23BFAB6A1BF4C08A00B8FD81 /* AnimatePlayerComponent.swift in Sources */,
 				5253638E1BEBF2790042ED95 /* GameLevelGameOverState.swift in Sources */,
 				525363751BEBF1DE0042ED95 /* AppDelegate.swift in Sources */,
 				525363A81BEBFD3D0042ED95 /* SplashScene.swift in Sources */,
+				525EB1FC1BF3F0FB00CC69A0 /* PlayerMoveLeft.swift in Sources */,
 				525363AA1BEBFDC00042ED95 /* LevelScene.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

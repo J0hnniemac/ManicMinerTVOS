@@ -19,8 +19,8 @@ class GameViewController: UIViewController {
     var level = 1
     var maxlevel = 2
     var screensStateMachine: GKStateMachine!
-    
-    
+    var levelScene: LevelScene!
+    var tapcount = 0
     override func viewDidLoad() {
         super.viewDidLoad()
         let skView = self.view as! SKView
@@ -184,6 +184,9 @@ class GameViewController: UIViewController {
         // Handle select button tapped
         
         print(__FUNCTION__)
+        if levelScene != nil  {
+            levelScene.player.componentForClass(MovePlayerComponent)?.moveJump()
+        }
         
     }
     
@@ -198,16 +201,38 @@ class GameViewController: UIViewController {
     func leftTapped(tapGestureRecognizer : UITapGestureRecognizer) {
         
         // Handle select button tapped
-        
-        print(__FUNCTION__)
+        if levelScene != nil  {
+                levelScene.player.componentForClass(MovePlayerComponent)?.moveLeft()
+        }
         
     }
     
     func rightTapped(tapGestureRecognizer : UITapGestureRecognizer) {
         
         // Handle select button tapped
+        tapcount++
+         print(__FUNCTION__)
+        print("===========\(tapcount)=============")
+        switch (tapGestureRecognizer.state) {
+        case .Began:
+            print("began")
+        case .Cancelled:
+            print("Cancelled")
+        case .Changed:
+            print("Changed")
+        case .Ended:
+            print("Ended")
+        case .Failed:
+            print("Failed")
+        case .Possible:
+            print("Possible")
+        }
+        print("state raw:\(tapGestureRecognizer.state.rawValue)")
         
-        print(__FUNCTION__)
+       
+        if levelScene != nil  {
+            levelScene.player.componentForClass(MovePlayerComponent)?.moveRight()
+        }
         
     }
     
