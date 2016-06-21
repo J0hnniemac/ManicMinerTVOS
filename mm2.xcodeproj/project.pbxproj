@@ -8,8 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		23BFAB6A1BF4C08A00B8FD81 /* AnimatePlayerComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23BFAB691BF4C08A00B8FD81 /* AnimatePlayerComponent.swift */; };
-		52187E991BF213D40019564E /* Level2.plist in Resources */ = {isa = PBXBuildFile; fileRef = 52187E981BF213D40019564E /* Level2.plist */; };
-		5227EFDB1BF55695004504CD /* player.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 5227EFDA1BF55695004504CD /* player.atlas */; };
+		23C197C71BF7DBD200834683 /* MoveHorizontalNastieComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C197C61BF7DBD200834683 /* MoveHorizontalNastieComponent.swift */; };
+		23E666881BF7A0E40034F4E5 /* HorizontalEnemy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E666871BF7A0E40034F4E5 /* HorizontalEnemy.swift */; };
 		524E65D11BF13BD90078EDB5 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524E65D01BF13BD90078EDB5 /* Helpers.swift */; };
 		525363751BEBF1DE0042ED95 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525363741BEBF1DE0042ED95 /* AppDelegate.swift */; };
 		525363771BEBF1DE0042ED95 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 525363761BEBF1DE0042ED95 /* GameScene.sks */; };
@@ -35,6 +35,10 @@
 		525EB1FA1BF3F0E900CC69A0 /* PlayerMoveRight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525EB1F91BF3F0E900CC69A0 /* PlayerMoveRight.swift */; };
 		525EB1FC1BF3F0FB00CC69A0 /* PlayerMoveLeft.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525EB1FB1BF3F0FB00CC69A0 /* PlayerMoveLeft.swift */; };
 		525EB1FE1BF3F10800CC69A0 /* PlayerJump.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525EB1FD1BF3F10800CC69A0 /* PlayerJump.swift */; };
+		5286870F1BF7898E00601AD2 /* badguys.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5286870E1BF7898E00601AD2 /* badguys.xcassets */; };
+		528F81371BFBC9BB00A5DA5E /* Level2.plist in Resources */ = {isa = PBXBuildFile; fileRef = 528F81361BFBC9BB00A5DA5E /* Level2.plist */; };
+		5298C6CF1BF7E96C0095F481 /* AnimateNastiesComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5298C6CE1BF7E96C0095F481 /* AnimateNastiesComponent.swift */; };
+		52AD4F671BFBCC9E00041AA6 /* LevelSprites.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52AD4F661BFBCC9E00041AA6 /* LevelSprites.xcassets */; };
 		52C36FFA1BF2A4E3006D731D /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C36FF91BF2A4E3006D731D /* Player.swift */; };
 		52C36FFC1BF2A504006D731D /* EntityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C36FFB1BF2A504006D731D /* EntityManager.swift */; };
 		52C36FFF1BF2A5A1006D731D /* SpriteComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C36FFE1BF2A5A1006D731D /* SpriteComponent.swift */; };
@@ -47,8 +51,8 @@
 
 /* Begin PBXFileReference section */
 		23BFAB691BF4C08A00B8FD81 /* AnimatePlayerComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimatePlayerComponent.swift; sourceTree = "<group>"; };
-		52187E981BF213D40019564E /* Level2.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Level2.plist; sourceTree = "<group>"; };
-		5227EFDA1BF55695004504CD /* player.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = player.atlas; sourceTree = "<group>"; };
+		23C197C61BF7DBD200834683 /* MoveHorizontalNastieComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoveHorizontalNastieComponent.swift; sourceTree = "<group>"; };
+		23E666871BF7A0E40034F4E5 /* HorizontalEnemy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HorizontalEnemy.swift; sourceTree = "<group>"; };
 		524E65D01BF13BD90078EDB5 /* Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		525363711BEBF1DE0042ED95 /* mm2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mm2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		525363741BEBF1DE0042ED95 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -76,6 +80,10 @@
 		525EB1F91BF3F0E900CC69A0 /* PlayerMoveRight.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerMoveRight.swift; sourceTree = "<group>"; };
 		525EB1FB1BF3F0FB00CC69A0 /* PlayerMoveLeft.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerMoveLeft.swift; sourceTree = "<group>"; };
 		525EB1FD1BF3F10800CC69A0 /* PlayerJump.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerJump.swift; sourceTree = "<group>"; };
+		5286870E1BF7898E00601AD2 /* badguys.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = badguys.xcassets; sourceTree = "<group>"; };
+		528F81361BFBC9BB00A5DA5E /* Level2.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Level2.plist; sourceTree = "<group>"; };
+		5298C6CE1BF7E96C0095F481 /* AnimateNastiesComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimateNastiesComponent.swift; sourceTree = "<group>"; };
+		52AD4F661BFBCC9E00041AA6 /* LevelSprites.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = LevelSprites.xcassets; sourceTree = "<group>"; };
 		52C36FF91BF2A4E3006D731D /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		52C36FFB1BF2A504006D731D /* EntityManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntityManager.swift; sourceTree = "<group>"; };
 		52C36FFE1BF2A5A1006D731D /* SpriteComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpriteComponent.swift; sourceTree = "<group>"; };
@@ -166,7 +174,7 @@
 		525363941BEBF2C70042ED95 /* Levels */ = {
 			isa = PBXGroup;
 			children = (
-				52187E981BF213D40019564E /* Level2.plist */,
+				528F81361BFBC9BB00A5DA5E /* Level2.plist */,
 				525363A01BEBF30D0042ED95 /* hud.sks */,
 				525363961BEBF2E30042ED95 /* Level1.sks */,
 				525363971BEBF2E30042ED95 /* Level2.sks */,
@@ -212,6 +220,7 @@
 			children = (
 				52C36FF91BF2A4E3006D731D /* Player.swift */,
 				52C36FFB1BF2A504006D731D /* EntityManager.swift */,
+				23E666871BF7A0E40034F4E5 /* HorizontalEnemy.swift */,
 			);
 			name = Entities;
 			sourceTree = "<group>";
@@ -222,6 +231,8 @@
 				52C36FFE1BF2A5A1006D731D /* SpriteComponent.swift */,
 				525EB1F41BF3D26000CC69A0 /* MovePlayerComponent.swift */,
 				23BFAB691BF4C08A00B8FD81 /* AnimatePlayerComponent.swift */,
+				23C197C61BF7DBD200834683 /* MoveHorizontalNastieComponent.swift */,
+				5298C6CE1BF7E96C0095F481 /* AnimateNastiesComponent.swift */,
 			);
 			name = Components;
 			sourceTree = "<group>";
@@ -229,10 +240,11 @@
 		52EBB4841BEFEB7F008FCF24 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
-				5227EFDA1BF55695004504CD /* player.atlas */,
 				52EBB4851BEFEB94008FCF24 /* Player.xcassets */,
 				52EBB4891BEFECD8008FCF24 /* Walls.xcassets */,
 				52EBB48B1BEFECE5008FCF24 /* Floors.xcassets */,
+				5286870E1BF7898E00601AD2 /* badguys.xcassets */,
+				52AD4F661BFBCC9E00041AA6 /* LevelSprites.xcassets */,
 			);
 			name = Assets;
 			sourceTree = "<group>";
@@ -295,10 +307,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				528F81371BFBC9BB00A5DA5E /* Level2.plist in Resources */,
 				52EBB48C1BEFECE5008FCF24 /* Floors.xcassets in Resources */,
 				525363801BEBF1DE0042ED95 /* Main.storyboard in Resources */,
 				525363991BEBF2E30042ED95 /* Level2.sks in Resources */,
 				52EBB4831BEFD19E008FCF24 /* Level1.plist in Resources */,
+				52AD4F671BFBCC9E00041AA6 /* LevelSprites.xcassets in Resources */,
 				525363771BEBF1DE0042ED95 /* GameScene.sks in Resources */,
 				52EBB4861BEFEB94008FCF24 /* Player.xcassets in Resources */,
 				525363A11BEBF30D0042ED95 /* hud.sks in Resources */,
@@ -306,9 +320,8 @@
 				5253639F1BEBF3030042ED95 /* EndLevel.sks in Resources */,
 				5253637D1BEBF1DE0042ED95 /* Game.xcassets in Resources */,
 				5253639D1BEBF2F50042ED95 /* End.sks in Resources */,
-				52187E991BF213D40019564E /* Level2.plist in Resources */,
-				5227EFDB1BF55695004504CD /* player.atlas in Resources */,
 				525363981BEBF2E30042ED95 /* Level1.sks in Resources */,
+				5286870F1BF7898E00601AD2 /* badguys.xcassets in Resources */,
 				52EBB48A1BEFECD8008FCF24 /* Walls.xcassets in Resources */,
 				5253639B1BEBF2EC0042ED95 /* Start.sks in Resources */,
 			);
@@ -325,11 +338,14 @@
 				525363791BEBF1DE0042ED95 /* GameScene.swift in Sources */,
 				525EB1FA1BF3F0E900CC69A0 /* PlayerMoveRight.swift in Sources */,
 				5253637B1BEBF1DE0042ED95 /* GameViewController.swift in Sources */,
+				23C197C71BF7DBD200834683 /* MoveHorizontalNastieComponent.swift in Sources */,
 				52C36FFF1BF2A5A1006D731D /* SpriteComponent.swift in Sources */,
 				525363901BEBF2800042ED95 /* GameLevelScreenState.swift in Sources */,
 				525363921BEBF29D0042ED95 /* GameSplashScreenState.swift in Sources */,
 				525EB1F81BF3F06D00CC69A0 /* PlayerIdle.swift in Sources */,
 				525EB1FE1BF3F10800CC69A0 /* PlayerJump.swift in Sources */,
+				23E666881BF7A0E40034F4E5 /* HorizontalEnemy.swift in Sources */,
+				5298C6CF1BF7E96C0095F481 /* AnimateNastiesComponent.swift in Sources */,
 				52C36FFA1BF2A4E3006D731D /* Player.swift in Sources */,
 				524E65D11BF13BD90078EDB5 /* Helpers.swift in Sources */,
 				52EBB4811BEFBA7E008FCF24 /* LevelConfigInfo.swift in Sources */,

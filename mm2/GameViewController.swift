@@ -35,6 +35,7 @@ class GameViewController: UIViewController {
         skView.showsFPS = true
         skView.showsNodeCount = true
         skView.ignoresSiblingOrder = true
+        skView.showsPhysics = true
         
         getControllers()
         
@@ -131,7 +132,13 @@ class GameViewController: UIViewController {
         
         rightTapGestureRecognizer.allowedPressTypes = [NSNumber(integer: rightPressType.rawValue)];
         
+        let downTapGestureRecognizer = UITapGestureRecognizer(target: self, action: "downTapped:")
         
+        let downPressType = UIPressType.DownArrow
+        
+        downTapGestureRecognizer.allowedPressTypes = [NSNumber(integer: downPressType.rawValue)];
+        
+
         
         let playPauseTapGestureRecognizer = UITapGestureRecognizer(target: self, action: "playPauseTapped:")
         
@@ -155,7 +162,8 @@ class GameViewController: UIViewController {
         
         view.addGestureRecognizer(rightTapGestureRecognizer)
         
-        
+        view.addGestureRecognizer(downTapGestureRecognizer)
+
         
         view.addGestureRecognizer(playPauseTapGestureRecognizer)
         
@@ -184,11 +192,26 @@ class GameViewController: UIViewController {
         // Handle select button tapped
         
         print(__FUNCTION__)
-        if levelScene != nil  {
-            levelScene.player.componentForClass(MovePlayerComponent)?.moveJump()
+        switch self.screensStateMachine.currentState {
+        case is GameSplashScreen:
+            print("enterState(GameLevelScreen)")
+            self.screensStateMachine.enterState(GameLevelScreen)
+            break
+        case is GameLevelScreen:
+            if levelScene != nil  {
+                levelScene.player.componentForClass(MovePlayerComponent)?.moveJump()
+            }
+            break
+        case is GameLevelComplete:
+            self.screensStateMachine.enterState(GameLevelScreen)
+            break
+        default:
+            print("nothing to change to")
         }
-        
     }
+
+        
+        
     
     func menuTapped(tapGestureRecognizer : UITapGestureRecognizer) {
         
@@ -234,6 +257,14 @@ class GameViewController: UIViewController {
             levelScene.player.componentForClass(MovePlayerComponent)?.moveRight()
         }
         
+    }
+    
+    func downTapped(tapGestureRecognizer : UITapGestureRecognizer) {
+        
+        // Handle select button tapped
+        if levelScene != nil  {
+            levelScene.player.playerMovementStateMachine.enterState(PlayerIdle)
+        }
     }
     
     

@@ -14,10 +14,10 @@ enum AnimationState: String {
     case Idle = "Idle"
     case WalkRight = "WalkRight"
     case WalkLeft = "WalkLeft"
-    case JumpUp = "JumpUp"
-    case JumpRight = "JumpRight"
-    case JumpLeft = "JumpLeft"
-}
+    }
+//case JumpUp = "JumpUp"
+//case JumpRight = "JumpRight"
+//case JumpLeft = "JumpLeft"
 
 //setup the Animationn Frames
 
@@ -38,6 +38,8 @@ class AnimatePlayerComponent: GKComponent {
     var jumpLeftAnim :SKAction!
     var jumpRightAnim :SKAction!
     var jumpUpAnim :SKAction!
+    
+        
     init(entity: Player, scene : LevelScene) {
         
         node = entity.componentForClass(SpriteComponent)!.spritenode
@@ -58,7 +60,11 @@ class AnimatePlayerComponent: GKComponent {
             requestedAnimationState = nil
         }
         
-        checkForCollisions()
+        
+                
+        
+        
+        //checkForCollisions()
     }
     
     func setupTextures(){
@@ -130,12 +136,6 @@ class AnimatePlayerComponent: GKComponent {
             runWalkLeftAnim()
         case .WalkRight:
             runWalkRightAnim()
-        case .JumpRight:
-            doJumpRightAnim()
-        case .JumpLeft:
-            doJumpLeftAnim()
-        case .JumpUp:
-            doJumpUpAnim()
         }
     }
     
@@ -197,7 +197,7 @@ class AnimatePlayerComponent: GKComponent {
         }
     }
     
-    func checkForCollisions(){
+    func xcheckForCollisions(){
     
     //check below player to stop falling when moving down.
         
@@ -216,7 +216,7 @@ class AnimatePlayerComponent: GKComponent {
             for checkNode in nodes {
             
                 if checkNode.name == "floor" {
-                    print("stop fall")
+                //    print("stop fall")
                     
                     node.removeActionForKey("jumpright")
                     node.removeActionForKey("jumpleft")

@@ -18,25 +18,16 @@ import GameplayKit
 class SpriteComponent: GKComponent {
   //  var walkRightTextures = [SKTexture]()
     let spritenode: SKSpriteNode
-    init(entity: GKEntity, texture: SKTexture, size: CGSize, name: String) {
+    init(entity: GKEntity, texture: SKTexture, size: CGSize, name: String, position :CGPoint, scene : SKScene) {
         spritenode = SKSpriteNode(texture: texture, size: size)
-        
-        
-        
+        spritenode.position = position
         spritenode.name = name
-       /*
-        walkRightTextures.append(SKTexture(imageNamed: "walkright01"))
-        walkRightTextures.append(SKTexture(imageNamed: "walkright02"))
-        walkRightTextures.append(SKTexture(imageNamed: "walkright03"))
-        walkRightTextures.append(SKTexture(imageNamed: "walkright04"))
-        walkRightTextures.append(SKTexture(imageNamed: "walkright03"))
-        walkRightTextures.append(SKTexture(imageNamed: "walkright02"))
-
-        let a1 = SKAction.animateWithTextures(walkRightTextures, timePerFrame: 0.2)
         
-        node.runAction(SKAction.repeatActionForever(a1))
-        */
-    }
+        scene.addChild(spritenode)
+        //if let spawnNode = entity.scene.childNodeWithName("//playerStart"){
+         //   spriteNode.position = spawnNode.position
+
+          }
     
     override func updateWithDeltaTime(deltaTime: NSTimeInterval) {
         super.updateWithDeltaTime(deltaTime)

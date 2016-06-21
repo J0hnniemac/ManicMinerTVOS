@@ -8,51 +8,45 @@
 
 import GameplayKit
 
-class PlayerJumpUp : GKState {
+
+class PlayerJumpIdle : GKState {
     var entity: Player
-        required init(entity: Player) {
+    required init(entity: Player) {
         self.entity = entity
     }
-    
     override func didEnterWithPreviousState(previousState: GKState?) {
-        if entity.componentForClass(AnimatePlayerComponent.self)?.requestedAnimationState != AnimationState.Idle {
-            entity.componentForClass(AnimatePlayerComponent.self)?.requestedAnimationState = AnimationState.JumpUp
-            print("StateMachine:JumpUp")
-        }
+        print("back to jumpidle")
+        
         
     }
+    
+    
 }
+class PlayerJump : GKState {
+    var jumpTime :NSTimeInterval = 0.8
+    var lastTime :NSTimeInterval = 0.0
 
-class PlayerJumpLeft : GKState {
     var entity: Player
     required init(entity: Player) {
         self.entity = entity
     }
     
     override func didEnterWithPreviousState(previousState: GKState?) {
-        if entity.componentForClass(AnimatePlayerComponent.self)?.requestedAnimationState != AnimationState.Idle {
-            entity.componentForClass(AnimatePlayerComponent.self)?.requestedAnimationState = AnimationState.JumpLeft
-            print("StateMachine:JumpLeft")
+        lastTime = 0
+        
+                
+    }
+    
+    override func updateWithDeltaTime(seconds: NSTimeInterval) {
+        
+        lastTime = lastTime + seconds
+        if lastTime > jumpTime {
+        
+            
+            entity.playerJumpStateMachine.enterState(PlayerJumpIdle)
+            
         }
         
     }
-    
-    
-}
-
-class PlayerJumpRight : GKState {
-    var entity: Player
-    required init(entity: Player) {
-        self.entity = entity
-    }
-    
-    override func didEnterWithPreviousState(previousState: GKState?) {
-        if entity.componentForClass(AnimatePlayerComponent.self)?.requestedAnimationState != AnimationState.Idle {
-            entity.componentForClass(AnimatePlayerComponent.self)?.requestedAnimationState = AnimationState.JumpRight
-            print("StateMachine:JumpRight")
-        }
-        
-    }
-    
     
 }

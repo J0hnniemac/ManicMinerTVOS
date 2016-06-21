@@ -14,31 +14,41 @@ struct LevelConfigurationInfo {
     
     struct nastiesConfiguration {
         
-        let spawnID :String
-        let texture :String
+        let name :String
+        let spawnPointName :String
+       // let texture :String
         let speed :Int
         let directionHorizontal :Bool
         let rangeofMovementLU :Int
         let rangeofMovementRD :Int
-    
+        let LUTextureList: [String]
+        let RDTextureList: [String]
+        
         init(nastiesConfigurationInfo: [String: AnyObject]) {
-        
-        spawnID = nastiesConfigurationInfo["spawnID"] as! String
-        texture = nastiesConfigurationInfo["texture"] as! String
-        speed = nastiesConfigurationInfo["speed"] as! Int
-        directionHorizontal = nastiesConfigurationInfo["directionHorizontal"] as! Bool
-        rangeofMovementLU = nastiesConfigurationInfo["rangeofMovementLU"] as! Int
-        rangeofMovementRD = nastiesConfigurationInfo["rangeofMovementRD"] as! Int
-        
+            
+            name = nastiesConfigurationInfo["name"] as! String
+            spawnPointName = nastiesConfigurationInfo["spawnPointName"] as! String
+            speed = nastiesConfigurationInfo["speed"] as! Int
+            directionHorizontal = nastiesConfigurationInfo["directionHorizontal"] as! Bool
+            
+         //   texture = nastiesConfigurationInfo["texture"] as! String
+            
+            
+            rangeofMovementLU = nastiesConfigurationInfo["rangeofMovementLU"] as! Int
+            rangeofMovementRD = nastiesConfigurationInfo["rangeofMovementRD"] as! Int
+            LUTextureList = nastiesConfigurationInfo["LUTextureList"] as! [String]
+            RDTextureList = nastiesConfigurationInfo["RDTextureList"] as! [String]
+            
         }
-    
+        
     }
     
-
+    
     
     private let configurationInfo: [String: AnyObject]
     let fileName :String
     let nastieConfigurations :[nastiesConfiguration]
+    
     init(fileName: String){
         self.fileName = fileName
         let url = NSBundle.mainBundle().URLForResource(fileName, withExtension: "plist")!
@@ -47,16 +57,16 @@ struct LevelConfigurationInfo {
         
         
         let nastieConfigurationsArray = configurationInfo["nastiesConfiguration"] as! [[String: AnyObject]]
-
-       // let levelNasties = nastiesConfiguration.map{nastiesConfiguration(configurationInfo : $0)}
-    
-    
+        
+        // let levelNasties = nastiesConfiguration.map{nastiesConfiguration(configurationInfo : $0)}
+        
+        
         //let botConfigurations = configurationInfo["taskBotConfigurations"] as! [[String: AnyObject]]
         
         // Map the array of `TaskBot` configuration dictionaries to an array of `TaskBotConfiguration` instances.
         nastieConfigurations = nastieConfigurationsArray.map { nastiesConfiguration(nastiesConfigurationInfo: $0) }
-    print("break")
-    
+        print("break")
+        
     }
     
     //levelName :String
@@ -66,14 +76,14 @@ struct LevelConfigurationInfo {
     //itemTexture :String
     //goalTexture :String
     //nastiesConfiguration[] :Array
-        //spawnID :String
-        //texture :String
-        //speed :Number
-        //directionHorizontal :Bool
-        //rangeofMovementLU :Number
-        //rangeofMovementRD :Number
+    //spawnID :String
+    //texture :String
+    //speed :Number
+    //directionHorizontal :Bool
+    //rangeofMovementLU :Number
+    //rangeofMovementRD :Number
     
-   //MARK: Properties
+    //MARK: Properties
     
     var levelName: String? {
         return configurationInfo["levelName"] as! String?
@@ -93,9 +103,19 @@ struct LevelConfigurationInfo {
     var goalTexture: String? {
         return configurationInfo["goalTexture"] as! String?
     }
+   // var conveyorTexture: String? {
+   //     return configurationInfo["conveyorTexture"] as! String?
+  //  }
+    
+    var conveyorTextures :[String]? {
+    return configurationInfo["conveyorTextures"] as! [String]?
+    }
+    var robotTexture: String? {
+        return configurationInfo["robotTexture"] as! String?
+    }
     var nasties : [nastiesConfiguration] {
-    
-    return nastieConfigurations
-    
+        
+        return nastieConfigurations
+        
     }
 }

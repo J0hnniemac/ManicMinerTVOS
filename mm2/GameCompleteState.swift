@@ -20,14 +20,6 @@ class GameLevelComplete : GKState {
     }
 
     
-    override func isValidNextState(stateClass: AnyClass) -> Bool {
-        switch stateClass {
-        case is GameLevelScreen.Type, is GameSplashScreen.Type:
-            return true
-        default:
-            return false
-        }
-    }
     override func didEnterWithPreviousState(previousState: GKState?) {
         LoadLevel()
     }

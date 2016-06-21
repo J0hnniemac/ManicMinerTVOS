@@ -12,37 +12,46 @@
 	<string>floor01</string>
 	<key>itemTexture</key>
 	<string></string>
-	<key>goalTexture</key>
-	<string></string>
+	<key>robotTexture</key>
+	<string>robot01</string>
+	<key>goalTextures</key>
+	<array>
+		<string>l1goal01</string>
+	</array>
+	<key>conveyorTextures</key>
+	<array>
+		<string>conveyor01</string>
+		<string>conveyor02</string>
+	</array>
 	<key>nastiesConfiguration</key>
 	<array>
 		<dict>
-			<key>spawnID</key>
+			<key>name</key>
 			<string>id1</string>
-			<key>texture</key>
-			<string>robot</string>
+			<key>spawnPointName</key>
+			<string>robotStart</string>
 			<key>speed</key>
-			<integer>0</integer>
+			<integer>5</integer>
 			<key>directionHorizontal</key>
 			<true/>
 			<key>rangeofMovementLU</key>
-			<integer>10</integer>
+			<integer>40</integer>
 			<key>rangeofMovementRD</key>
-			<integer>5</integer>
-		</dict>
-		<dict>
-			<key>spawnID</key>
-			<string>id2</string>
-			<key>texture</key>
-			<string>duck</string>
-			<key>speed</key>
-			<integer>0</integer>
-			<key>directionHorizontal</key>
-			<true/>
-			<key>rangeofMovementLU</key>
-			<integer>10</integer>
-			<key>rangeofMovementRD</key>
-			<integer>5</integer>
+			<integer>220</integer>
+			<key>LUTextureList</key>
+			<array>
+				<string>robotL01</string>
+				<string>robotL02</string>
+				<string>robotL03</string>
+				<string>robotL04</string>
+			</array>
+			<key>RDTextureList</key>
+			<array>
+				<string>robotR01</string>
+				<string>robotR02</string>
+				<string>robotR03</string>
+				<string>robotR04</string>
+			</array>
 		</dict>
 	</array>
 </dict>

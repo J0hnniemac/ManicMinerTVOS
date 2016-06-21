@@ -11,11 +11,6 @@ import GameplayKit
 class PlayerIdle : GKState {
     
     var entity: Player
-    //var animationComponent : AnimatePlayerComponent!
-   // unowned var animationComponent: AnimatePlayerComponent {
-     //   guard let animationComponent = entity.componentForClass(AnimatePlayerComponent.self) else { fatalError("Player entity must have an AnimationComponent.") }
-    //    return animationComponent
-   // }
     
     required init(entity: Player) {
         self.entity = entity
@@ -25,9 +20,6 @@ class PlayerIdle : GKState {
 }
 
     override func didEnterWithPreviousState(previousState: GKState?) {
-//        let animationComponent = entity.componentForClass(AnimatePlayerComponent.self)
-  //      animationComponent!.requestedAnimationState = AnimationState.Idle
-    
         
         if entity.componentForClass(AnimatePlayerComponent.self)?.requestedAnimationState != AnimationState.Idle {
                 entity.componentForClass(AnimatePlayerComponent.self)?.requestedAnimationState = AnimationState.Idle

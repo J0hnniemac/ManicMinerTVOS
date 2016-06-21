@@ -10,7 +10,7 @@ import Foundation
 import SpriteKit
 import GameController
 import GameplayKit
-class LevelScene: SKScene {
+class LevelScene: SKScene,SKPhysicsContactDelegate {
     var vcDelegate : GameViewController!
     
     var levelInfo : LevelConfigurationInfo!
@@ -21,6 +21,7 @@ class LevelScene: SKScene {
     var score_label :SKLabelNode!
     var highScore_label :SKLabelNode!
     var airBar_label :SKSpriteNode!
+    
     
     
     //MARK:Entities and Components
@@ -35,6 +36,8 @@ class LevelScene: SKScene {
         return [spriteSystem]}()
     
     
+    var sinkyTextures :[SKTexture]!
+    
     override func didMoveToView(view: SKView) {
         print("\(__FUNCTION__):LevelScene")
         let camera = SKCameraNode()
@@ -44,14 +47,18 @@ class LevelScene: SKScene {
         /* Setup your scene here */
         setupCamera()
         let levelName = "Level\(vcDelegate.level)"
+        print("Starting Level : \(levelName)")
         levelInfo = LevelConfigurationInfo(fileName: levelName)
         
+        self.physicsWorld.contactDelegate = self
+        self.physicsWorld.gravity = CGVector.zero
         
         //print("Levelinfo")
         printLevelInfo()
         
         drawFloors()
         drawWalls()
+        drawConveyors()
         setupHud()
         
         entityManager = EntityManager(scene: self)
@@ -61,6 +68,33 @@ class LevelScene: SKScene {
         
         //player.componentForClass(MovePlayerComponent)?.moveLeft()
         vcDelegate.levelScene = self
+        
+        setupBadGuys()
+        setupSinkyTextures()
+    }
+    func setupSinkyTextures(){
+    
+        sinkyTextures = Array<SKTexture>()
+        sinkyTextures.append(SKTexture(imageNamed: "sinkfloor01"))
+        sinkyTextures.append(SKTexture(imageNamed: "sinkfloor02"))
+        sinkyTextures.append(SKTexture(imageNamed: "sinkfloor03"))
+        sinkyTextures.append(SKTexture(imageNamed: "sinkfloor04"))
+        sinkyTextures.append(SKTexture(imageNamed: "sinkfloor05"))
+        sinkyTextures.append(SKTexture(imageNamed: "sinkfloor06"))
+    
+    }
+    
+    func setupBadGuys() {
+        
+        
+        //look at scene and get them get //horizontalBadGuys node
+        
+        for nastie in levelInfo.nastieConfigurations {
+            if nastie.directionHorizontal {
+                let he = HorizontalEnemy(entityManager: entityManager, nastie : nastie)
+                entityManager.add(he)
+            }
+        }
     }
     
     
@@ -109,12 +143,54 @@ class LevelScene: SKScene {
     }
     func drawWalls(){
         //Get the floors from the scene
-        self.enumerateChildNodesWithName("//wall", usingBlock: {
+        self.enumerateChildNodesWithName("//hwall", usingBlock: {
             node, stop in
             let wallImage = self.levelInfo.wallTexture
             if let wall = node as? SKSpriteNode {
                 wall.tileNode(SKTexture(imageNamed: wallImage!))
             }
+        })
+        self.enumerateChildNodesWithName("//vwall", usingBlock: {
+            node, stop in
+            let wallImage = self.levelInfo.wallTexture
+            if let wall = node as? SKSpriteNode {
+                wall.tileNode(SKTexture(imageNamed: wallImage!))
+            }
+        })
+    }
+    func drawConveyors(){
+        //Get the floors from the scene
+        self.enumerateChildNodesWithName("//floorConveyor", usingBlock: {
+            node, stop in
+            let conveyorImage = self.levelInfo.conveyorTextures![0]
+            if let conveyor = node as? SKSpriteNode {
+                conveyor.tileNode(SKTexture(imageNamed: conveyorImage))
+            }
+            
+            //Animate Conveyors
+            
+            var conveyorTextures :[SKTexture] = Array<SKTexture>()
+            
+            for text in self.levelInfo.conveyorTextures! {
+                
+                //Take this texture and build a new tiled texture.
+                let conveyorImage = text
+                if let conveyor = node as? SKSpriteNode {
+                    conveyor.tileNode(SKTexture(imageNamed: conveyorImage))
+                    conveyorTextures.append(conveyor.texture!)
+                    
+                    
+                }
+                
+                
+                //conveyorTextures.append(SKTexture(imageNamed: text))
+                
+            }
+            let a1 = SKAction.animateWithTextures(conveyorTextures, timePerFrame: 0.2)
+            let a2 = SKAction.repeatActionForever(a1)
+            node.runAction(a2)
+            
+            
         })
         
     }
@@ -162,7 +238,7 @@ class LevelScene: SKScene {
             // let location = touch.locationInNode(self)
             let location = touch.locationInView(touch.view)
             
-          //  print("touchloc:\(location)")
+            //  print("touchloc:\(location)")
             let sprite = SKSpriteNode(imageNamed:"Spaceship")
             
             sprite.xScale = 0.5
@@ -179,15 +255,15 @@ class LevelScene: SKScene {
     override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
         //print(__FUNCTION__)
         //stop movement
-       player.playerMovementStateMachine.enterState(PlayerIdle)
+        //player.playerMovementStateMachine.enterState(PlayerIdle)
         
     }
     
     override func touchesCancelled(touches: Set<UITouch>?, withEvent event: UIEvent?) {
         //print(__FUNCTION__)
         //stop movement
-        player.playerMovementStateMachine.enterState(PlayerIdle)
-
+        //player.playerMovementStateMachine.enterState(PlayerIdle)
+        
     }
     
     override func update(currentTime: NSTimeInterval) {
@@ -205,11 +281,17 @@ class LevelScene: SKScene {
         
         //run the update bits
         
-        for comp in player.components {
-        comp.updateWithDeltaTime(deltaTime)
+        // for comp in player.components {
+        //   comp.updateWithDeltaTime(deltaTime)
+        
+        //}
+        //  player.updateWithDeltaTime(deltaTime)
+        
+        for xx in entityManager.entities    {
+            
+            xx.updateWithDeltaTime(deltaTime)
+            
         }
-        
-        
         
         
     }
@@ -229,5 +311,113 @@ class LevelScene: SKScene {
         print(__FUNCTION__)
         player.componentForClass(MovePlayerComponent)?.moveJump()
     }
-
+    
+    func didBeginContact(contact: SKPhysicsContact) {
+        // 1
+        print(__FUNCTION__)
+        var firstBody: SKPhysicsBody
+        var secondBody: SKPhysicsBody
+        
+        if contact.bodyA.categoryBitMask < contact.bodyB.categoryBitMask {
+            firstBody = contact.bodyA
+            secondBody = contact.bodyB
+        } else {
+            firstBody = contact.bodyB
+            secondBody = contact.bodyA
+        }
+        
+        print("fb:\(firstBody.node?.name) sb:\(secondBody.node?.name)")
+        
+        
+        
+        
+        if firstBody.categoryBitMask == PhysicsCategory.Player {
+            
+            if secondBody.categoryBitMask == PhysicsCategory.Nastie {
+                print("Died")
+            }
+            if secondBody.categoryBitMask == PhysicsCategory.Key {
+                print("Collect Key")
+                secondBody.node?.removeFromParent()
+                
+            }
+            if secondBody.categoryBitMask == PhysicsCategory.Finish {
+                print("At the Finish")
+            }
+            if secondBody.categoryBitMask == PhysicsCategory.SinkyFloor {
+                print("start floor sinking")
+                
+                if let sknode  = secondBody.node as? SKSpriteNode {
+                
+                print(sknode.texture?.description)
+                    if sknode.texture?.description.rangeOfString("sinkfloor06") != nil {
+                        
+                        secondBody.node?.removeFromParent()
+                    }
+                    
+                    if sknode.texture?.description.rangeOfString("sinkfloor05") != nil {
+                        
+                        sknode.texture = self.sinkyTextures[5]
+                    }
+                    if sknode.texture?.description.rangeOfString("sinkfloor04") != nil {
+                        
+                        sknode.texture = self.sinkyTextures[4]
+                    }
+                    
+                    
+                    if sknode.texture?.description.rangeOfString("sinkfloor03") != nil {
+                        
+                        sknode.texture = self.sinkyTextures[3]
+                    }
+                    
+                    if sknode.texture?.description.rangeOfString("sinkfloor02") != nil {
+                        
+                        sknode.texture = self.sinkyTextures[2]
+                    }
+                    if sknode.texture?.description.rangeOfString("sinkfloor01") != nil {
+                    
+                    sknode.texture = self.sinkyTextures[1]
+                    }
+                    
+                    
+                    
+                }
+                
+            }
+            
+            
+            
+        }
+    }
+    
+    func didEndContact(contact: SKPhysicsContact) {
+        
+        print(__FUNCTION__)
+        var firstBody: SKPhysicsBody
+        var secondBody: SKPhysicsBody
+        
+        if contact.bodyA.categoryBitMask < contact.bodyB.categoryBitMask {
+            firstBody = contact.bodyA
+            secondBody = contact.bodyB
+        } else {
+            firstBody = contact.bodyB
+            secondBody = contact.bodyA
+        }
+        
+        print("fb:\(firstBody.node?.name) sb:\(secondBody.node?.name)")
+        if firstBody.categoryBitMask == PhysicsCategory.Player {
+            
+            if secondBody.categoryBitMask == PhysicsCategory.SinkyFloor {
+                print("stop floor sinking")
+                
+            }
+            
+            
+            
+        }
+        
+        
+        
+    }
+    
 }
